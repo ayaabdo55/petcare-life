@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>PetCare Life — Login / Register</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <a href="/" class="nav-logo">
+    <div class="paw-icon">🐾</div>
+    PetCare Life
+  </a>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/clinics">Clinics</a></li>
+    <li><a href="/stores">Stores</a></li>
+  </ul>
+  <div class="nav-actions" id="navActions"></div>
+</nav>
+
+<main>
+<div class="auth-page">
+  <div class="auth-card">
+
+    <!-- LEFT PANEL -->
+    <div class="auth-left">
+      <h2>Welcome to<br>PetCare Life 🐾</h2>
+      <p>Join thousands of pet owners who trust us to find the best care and products for their beloved companions.</p>
+      <div class="auth-benefits">
+        <div class="auth-benefit"><div class="dot"></div> Find verified clinics near you</div>
+        <div class="auth-benefit"><div class="dot"></div> Browse 20+ pet stores and clinics</div>
+        <div class="auth-benefit"><div class="dot"></div> Free to use, always</div>
+      </div>
+    </div>
+
+    <!-- RIGHT PANEL -->
+    <div class="auth-right">
+
+      <!-- Tabs -->
+      <div class="auth-tabs">
+        <button class="auth-tab active" data-target="loginForm">Login</button>
+        <button class="auth-tab" data-target="registerForm">Register</button>
+      </div>
+
+      <!-- LOGIN FORM -->
+      <div class="auth-form active" id="loginForm">
+        <h3>Welcome back! 👋</h3>
+        <p class="sub">Sign in to your PetCare Life account</p>
+        <form id="loginFormEl" novalidate>
+          <div class="form-group">
+            <label for="loginEmail">Email Address</label>
+            <input type="email" id="loginEmail" placeholder="you@example.com" autocomplete="email"/>
+            <span class="error-msg" id="loginEmailError"></span>
+          </div>
+          <div class="form-group">
+            <label for="loginPass">Password</label>
+            <input type="password" id="loginPass" placeholder="Enter your password" autocomplete="current-password"/>
+            <span class="error-msg" id="loginPassError"></span>
+          </div>
+          
+          <button type="submit" class="btn btn-primary submit-btn">Login to Account →</button>
+        </form>
+        <p class="form-hint">
+          Don't have an account?
+          <a href="#" onclick="switchToRegister()">Create one free</a>
+        </p>
+      </div>
+
+      <!-- REGISTER FORM -->
+      <div class="auth-form" id="registerForm">
+        <h3>Create Account 🐶</h3>
+        <p class="sub">Join PetCare Life — it's completely free</p>
+        <form id="registerFormEl" novalidate>
+          <div class="form-group">
+            <label for="regName">Username</label>
+            <input type="text" id="regName" placeholder="Choose a username" autocomplete="username"/>
+            <span class="error-msg" id="regNameError"></span>
+          </div>
+          <div class="form-group">
+            <label for="regEmail">Email Address</label>
+            <input type="email" id="regEmail" placeholder="you@example.com" autocomplete="email"/>
+            <span class="error-msg" id="regEmailError"></span>
+          </div>
+          <div class="form-group">
+            <label for="regPass">Password</label>
+            <input type="password" id="regPass" placeholder="At least 6 characters" autocomplete="new-password"/>
+            <span class="error-msg" id="regPassError"></span>
+          </div>
+          <div class="form-group">
+            <label for="regConfirm">Confirm Password</label>
+            <input type="password" id="regConfirm" placeholder="Repeat your password" autocomplete="new-password"/>
+            <span class="error-msg" id="regConfirmError"></span>
+          </div>
+          <button type="submit" class="btn btn-primary submit-btn">Create My Account →</button>
+        </form>
+        <p class="form-hint">
+          Already have an account?
+          <a href="#" onclick="switchToLogin()">Sign in</a>
+        </p>
+      </div>
+
+    </div><!-- /auth-right -->
+  </div><!-- /auth-card -->
+</div>
+</main>
+
+<script src="/script.js"></script>
+
+</body>
+</html>

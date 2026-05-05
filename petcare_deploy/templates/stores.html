@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>PetCare Life — Pet Stores</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <a href="/" class="nav-logo">
+    <div class="paw-icon">🐾</div>
+    PetCare Life
+  </a>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/clinics">Clinics</a></li>
+    <li><a href="/stores" class="active">Stores</a></li>
+  </ul>
+  <div class="nav-actions" id="navActions"></div>
+</nav>
+
+<main>
+  <!-- PAGE HERO -->
+  <div class="page-hero" style="background:linear-gradient(135deg,#c0355a,#FF6B8A);">
+    <h1>🛒 Pet Stores</h1>
+    <p>Discover the best pet stores for food, toys, accessories, and more</p>
+  </div>
+
+  <!-- SEARCH -->
+<section style="padding:0 5%; margin-top:20px;">  
+    <div class="search-wrap">
+      <input type="text" id="searchStores" placeholder="Search by store name or location…" autocomplete="off"/>
+      <span class="search-icon">🔍</span>
+    </div>
+  </section>
+
+  <section class="cards-section">
+    <div class="cards-grid" id="storesGrid">
+      <div style="text-align:center;padding:40px;">Loading stores...</div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="nav-logo">🐾 PetCare Life</div>
+      <p>Your all-in-one platform for pet care.</p>
+    </div>
+  </div>
+</footer>
+<script src="/script.js"></script>
+<script>
+  // Make sure stores load when page is ready
+  document.addEventListener('DOMContentLoaded', function() {
+    if (typeof loadStores === 'function') {
+      loadStores();
+    } else {
+      console.error("loadStores function not found!");
+    }
+  });
+</script>
+</body>
+</html>

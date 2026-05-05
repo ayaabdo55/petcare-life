@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>PetCare Life — Clinics</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="/" class="nav-logo">
+    <div class="paw-icon">🐾</div>
+    PetCare Life
+  </a>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/clinics" class="active">Clinics</a></li>
+    <li><a href="/stores">Stores</a></li>
+  </ul>
+  <div class="nav-actions" id="navActions"></div>
+</nav>
+
+<main>
+  <div class="page-hero">
+    <h1>🏥 Veterinary Clinics</h1>
+    <p>Find trusted, certified veterinarians and clinics near you</p>
+  </div>
+
+  <section style="padding:0 5%;margin-top:20px;">
+    <div class="search-wrap">
+      <input type="text" id="searchClinics" placeholder="Search by clinic name or location…" autocomplete="off"/>
+      <span class="search-icon">🔍</span>
+    </div>
+  </section>
+
+  <!-- EMPTY GRID - JavaScript will fill  -->
+  <section class="cards-section">
+    <div class="cards-grid" id="clinicsGrid"></div>
+  </section>
+</main>
+
+<!-- Booking Modal -->
+<div id="bookingOverlay" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.45); z-index:9000; align-items:center; justify-content:center; padding:20px;">
+  <div style="background:#fff; border-radius:20px; padding:36px; max-width:460px; width:100%;">
+    <button onclick="closeBookingModal()" style="float:right; background:none; border:none; font-size:1.4rem;">✕</button>
+    <h2>Book Appointment</h2>
+    <p id="bookingClinicName"></p>
+    <div class="booking-form">
+      <div class="form-group">
+        <label>Pet Name</label>
+        <input type="text" id="bookPetName" />
+      </div>
+      <div class="form-group">
+        <label>Pet Type</label>
+        <select id="bookPetType">
+          <option>Dog</option>
+          <option>Cat</option>
+          <option>Bird</option>
+          <option>Rabbit</option>
+          <option>Reptile</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Date</label>
+        <input type="date" id="bookDate" />
+      </div>
+      <div class="form-group">
+        <label>Reason</label>
+        <textarea id="bookReason"></textarea>
+      </div>
+      <button onclick="submitBooking()" class="btn btn-primary">Confirm Booking</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="nav-logo">🐾 PetCare Life</div>
+      <p>Your all-in-one platform for pet care.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="/script.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    if (typeof loadClinics === 'function') {
+      loadClinics();
+    } else {
+      console.error("loadClinics not found!");
+    }
+  });
+</script>
+</body>
+</html>

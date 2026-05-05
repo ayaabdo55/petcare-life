@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>PetCare Life — My Bookings</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <a href="/" class="nav-logo">
+    <div class="paw-icon">🐾</div>
+    PetCare Life
+  </a>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/clinics">Clinics</a></li>
+    <li><a href="/stores">Stores</a></li>
+  </ul>
+  <div class="nav-actions" id="navActions"></div>
+</nav>
+
+<main>
+  <!-- PAGE HERO -->
+  <div class="page-hero" style="background:linear-gradient(135deg,#076e6e,#0d9e9e);">
+    <h1>📋 My Bookings</h1>
+    <p>View, edit, or cancel your clinic appointments</p>
+  </div>
+
+  <!-- BOOKINGS LIST -->
+  <section style="padding: 40px 6%;">
+    <div id="bookingsList">
+      <div style="text-align:center;padding:40px;">Loading your bookings...</div>
+    </div>
+  </section>
+</main>
+
+<!-- EDIT BOOKING MODAL -->
+<div id="editBookingOverlay" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.45);
+     z-index:9000; align-items:center; justify-content:center; padding:20px;">
+  <div style="background:#fff; border-radius:20px; padding:36px; max-width:460px; width:100%;
+       box-shadow:0 16px 60px rgba(0,0,0,0.2); position:relative;">
+
+    <button onclick="closeEditBooking()" style="position:absolute; top:16px; right:18px;
+      background:none; border:none; font-size:1.4rem; cursor:pointer; color:#5C7B7B;">&#x2715;</button>
+
+    <h2 style="font-size:1.3rem; font-weight:800; margin-bottom:4px;">Edit Appointment</h2>
+    <p id="editBookingClinic" style="font-size:0.83rem; color:#5C7B7B; margin-bottom:20px;"></p>
+
+    <input type="hidden" id="editBookingId" />
+
+    <div class="booking-form">
+      <div class="form-group">
+        <label for="editPetName">Pet Name</label>
+        <input type="text" id="editPetName" placeholder="e.g. Max" />
+      </div>
+      <div class="form-group">
+        <label for="editPetType">Pet Type</label>
+        <select id="editPetType">
+          <option value="">Select pet type</option>
+          <option>Dog</option>
+          <option>Cat</option>
+          <option>Bird</option>
+          <option>Rabbit</option>
+          <option>Reptile</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="editDate">Preferred Date</label>
+        <input type="date" id="editDate" />
+      </div>
+      <div class="form-group">
+        <label for="editReason">Reason for Visit</label>
+        <textarea id="editReason" placeholder="Describe the reason for your visit"></textarea>
+      </div>
+      <button onclick="submitEditBooking()" class="btn btn-primary" style="width:100%; padding:12px;">
+        Save Changes ✅
+      </button>
+    </div>
+  </div>
+</div>
+
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="nav-logo">🐾 PetCare Life</div>
+      <p>Your all-in-one platform for pet care.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="/script.js"></script>
+<script>
+  // Load bookings when page is ready
+  document.addEventListener('DOMContentLoaded', function() {
+    if (typeof loadMyBookings === 'function') {
+      loadMyBookings();
+    } else {
+      console.error("loadMyBookings function not found!");
+    }
+  });
+</script>
+</body>
+</html>
